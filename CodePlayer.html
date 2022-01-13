@@ -27,7 +27,9 @@
         #logo{
 
             float: left;
-            padding: 5px;
+            padding: 3px 5px; 
+            font-weight: 120%;
+
         }
 
 
@@ -61,6 +63,44 @@
             border-right: 1px solid grey;
         }
 
+        .active {
+
+            background-color: #E8F2FF;
+
+        }
+
+        .hightlightedButton {
+
+            background-color: grey;
+        }
+
+        textarea {
+
+            resize: none;
+            border-top: none;
+            border-color: grey;
+            
+        }
+
+        .panel {
+            float: left;
+            width: 50%;
+            border-left: none;
+            
+        }
+
+        iframe {
+
+           border: none;
+
+        }
+
+        .hidden {
+
+            display: none;
+
+        }
+
     </style>
 
 </head>
@@ -77,26 +117,83 @@
 
         <div id="buttonContainer">
 
-            <div class="toggleButton" id="html">html</div>
+            <div class="toggleButton active" id="html">html</div>
 
             <div class="toggleButton" id="CSS">CSS</div>
 
             <div class="toggleButton" id="Javascript">JavaScript</div>
 
-            <div class="toggleButton" id="output">Output</div>
+            <div class="toggleButton active" id="output">Output</div>
 
         </div>
 
     </div>
 
+    <div id="bodyContainer">
+
+        <textarea id="htmlPanel" class="panel"><p>Hello World</p></textarea>    
+
+        <textarea id="cssPanel" class="panel hidden">p { color : green; }</textarea>    
+
+        <textarea id="javascriptPanel" class="panel hidden">alert("Hi There");</textarea>    
+
+        <iframe id="outputPanel"class="panel">        </iframe>
+
+    </div>
 
     <script type="text/javascript">
 
+        //this is updated outpanel with all the html and css code
+        function updatedOutput() {
+            $("iframe").contents().find("html").html("<html><head><style type='text/css'>" +
+                $("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
+            
+                //this is javascript running within the iframe
+            document.getElementById("outputPanel").contentWindow.eval($("#javascriptPaanel").val());
+            
+        }
 
 
 
+        $(".toggleButton").hover(function(){
+
+            $(this).addClass("highlightedButton");
+
+        }, function(){
+            $(this).removeClass("highlightedButton");
+        });
+
+        $(".toggleButton").click(function() {
+
+            $(this).toggleClass("active");
+
+            $(this).removeClass("highlightedButton");
+
+            // this is getting the number of active panels and splitting the width so they are all visable in the broswer window
+            var panelId = $(this).attr("id") + "Panel";
+
+            $("#" + panelId).toggleClass("hidden");
+            
+            var numberOfActivePanels = 4 -$(".hidden").length;
+
+            $(".panel").width(($(window).width() / numberOfActivePanels) - 10);
+
+        });
+
+        $(".panel").height($(window).height() - $("#header").height() - 15);
+
+        $(".panel").width(($(window).width() / 2) - 10);
+
+        updatedOutput();
+
+        $("textarea").on("change keyup paste", function() {
+           
+            updatedOutput();
+
+        });
 
     </script>
+
 
 </body>
 
