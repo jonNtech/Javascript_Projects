@@ -1,0 +1,197 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+  background-color: #f3f7f8;
+  height: 75px;
+  color: black;
+  list-style: none;
+  text-decoration: none;
+  padding-bottom: 50px;
+  
+}
+header nav  * {
+  float: left;
+  width: 10%;
+  list-style: none;
+  display: block;
+  color: black;
+  
+}
+nav  ul {
+  width: 70%;
+  float: left;
+  color: black;
+}
+
+
+/*this is the first section */
+main {
+  background-image: url("cuisine-restaurant-mithun-ray.png");
+  background-repeat: no-repeat;
+  background-size: 100% 700px;
+  clear: both;
+  height: 400px;
+  width: 100%;
+  
+}
+
+main + section {
+  background-image: url('2ndphoto.PNG');
+  background-repeat: no-repeat;
+  background-size: 100% 500px;
+  height: 500px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-right: 60%;
+  margin-left: 30px;
+}
+
+input {
+  width: 20%;
+  padding: 10px 0 ;
+  margin-left: 30px;
+}
+
+main > form a {
+  text-decoration: none;
+  padding: 10px 30px;
+  background-color: orange;
+  color: white;
+}
+
+main section {
+  margin: 10px 30px;
+  padding: 10px;
+  clear: both;
+  
+}
+main section a {
+  font-size: 1.2rem;
+  color: orange;
+  text-decoration: none;
+  margin-left: 50px;
+}
+
+/*this is the second section */
+main + section p + a {
+  text-decoration: none;
+  padding: 10px 30px;
+  background-color: orange;
+  color: white;
+  margin: 20px 50px 0 0;
+}
+
+main + section {
+  text-align: right;
+  
+}
+
+main + section span {
+  color: orange;
+  font-weight: 600;
+  margin-right: 50px;
+  font-size: 1.6rem;
+}
+
+main + section h2 {
+ margin:  0 50px 20px 0 ;
+  font-size: 3rem;
+} 
+
+
+main + section p {
+  text-align: right;
+  margin: 0 50px 10px 700px;
+  font-size: 1.5rem;
+
+}
+
+/*this is the 3rd section */
+main + section + section {
+  text-align: center;
+  background-color: #f5f7f8;
+}
+main + section + section span {
+  color: orange;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+main + section + section h2 {
+  font-size: 3rem;
+  clear: both;
+}
+
+main + section + section li {
+  float: left;
+  width: 15%;
+  font-size: 1.5rem;
+  list-style: none;
+  text-decoration: none;
+  margin-bottom: 10px;
+  
+}
+
+main + section + section  section {
+  width: 90%;
+  height: 900px;
+}
+
+main + section + section  section img{
+  float: left;
+  width: 23%;
+  list-style: none;
+  margin: 1%;
+  
+  
+}
+
+
+/*this is the fourth section open hours*/
+main + section + section + section {
+  text-align: center;
+  clear: both;
+}
+
+
+
+
+
+
+/*this is the last section Testimonil*/
+main + section + section + section + section {
+  text-align: center;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
