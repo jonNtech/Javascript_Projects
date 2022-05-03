@@ -8,6 +8,7 @@ function pokemonTeam(team){
 //Given two integer arrays a, b, both of length >= 1, create a program that returns true if the sum of the squares of each element in a is strictly greater than the sum of the cubes of each element in b.
 function isSquareBetterCube(x, y){
     let squareX = x.map(x =>Math.pow(x,2)).reduce((a,b) => a+b)
+    // a.reduce((acc,c) => acc + c **2, 0)
     let cubeY = y.map(y => Math.pow(y,3)).reduce((a,b) => a+b)
     console.log(squareX)
     console.log(cubeY)
@@ -34,6 +35,7 @@ function nums(arr) {
     let newArr = arr.map(x => Number(x))
     let result = newArr.reduce((a,b) => a+b)
     return result
+    //return arr.reduce((acc,c) => acc +Number(c))
 }
 
 console.log( nums([1,2,3,4,'5']) )
